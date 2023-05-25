@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Home"
+        android:icon="@drawable/home"
+        android:id="@+id/homeFragment"/>
+    <item android:title="Calender"
+        android:icon="@drawable/calender"
+        android:id="@+id/calenderFragment"/>
+    <item android:title="Weather"
+        android:icon="@drawable/weather"
+        android:id="@+id/weatherFragment"/>
+    <item android:title="Disease"
+        android:icon="@drawable/search"
+        android:id="@+id/diseaseFragment"/>
+    <item android:title="User Profile"
+        android:icon="@drawable/user_profile"
+        android:id="@+id/userProfileFragment"/>
+</menu>

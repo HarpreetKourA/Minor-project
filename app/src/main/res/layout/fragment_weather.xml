@@ -1,0 +1,806 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:id="@+id/homeRL"
+    tools:context=".MainActivity">
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:paddingBottom="100dp">
+
+      <ProgressBar
+          android:id="@+id/idPBLoading"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:visibility="gone"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/txt"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:text="Weather"
+          android:textColor="@color/black"
+          android:textSize="24sp"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <LinearLayout
+          android:id="@+id/idLLEdit"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:background="@color/primary"
+          android:orientation="horizontal"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/txt">
+
+         <com.google.android.material.textfield.TextInputLayout
+             android:id="@+id/idTTCity"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="4.5"
+             android:background="@android:color/transparent"
+             android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/idEdtCity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="Enter City Name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:hintTextColor="@color/white" />
+
+         </com.google.android.material.textfield.TextInputLayout>
+
+         <ImageView
+             android:id="@+id/idTVSearch"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_marginEnd="10dp"
+             android:layout_weight="0.5"
+             android:src="@drawable/search" />
+      </LinearLayout>
+
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/cardView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          app:cardBackgroundColor="@color/primaryDark"
+          app:cardCornerRadius="10dp"
+          app:cardElevation="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/idLLEdit">
+
+         <androidx.constraintlayout.widget.ConstraintLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's update!"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/weatherImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/w01d"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/txt1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+            <TextView
+                android:id="@+id/id_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="27°C"
+                android:layout_marginStart="30dp"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/weatherImage"
+                app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+            <TextView
+                android:id="@+id/id_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="sunny"
+                android:textAllCaps="false"
+                android:layout_marginStart="30dp"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/weatherImage"
+                app:layout_constraintTop_toBottomOf="@+id/id_degree" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/id_main"
+                app:layout_constraintTop_toBottomOf="@+id/id_main" />
+
+
+         </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.cardview.widget.CardView>
+
+      <LinearLayout
+          android:id="@+id/id_weatherDetails"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:background="@color/primaryDark"
+          android:orientation="horizontal"
+          android:padding="10dp"
+          android:weightSum="3"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Humidity"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="94%"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Wind"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="3 km/h"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Air pressure"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="19°"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+         </LinearLayout>
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/txt2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:text="Weather Forecasting"
+          android:textColor="@color/black"
+          android:textSize="19sp"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/id_weatherDetails" />
+
+      <!--<androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/idRvWeather"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txt2"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
+      <HorizontalScrollView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          android:layout_marginHorizontal="20dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/txt2" >
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+                  <androidx.constraintlayout.widget.ConstraintLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                      android:padding="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/idTVDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="30/04/2022"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idTVTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/idTVDate"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="20°C"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTVDate" />
+
+        <ImageView
+            android:id="@+id/idTVCondition"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:padding="4dp"
+            android:src="@drawable/w01d"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/idTVTemperature" />
+        <TextView
+            android:id="@+id/idTVWindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/idTVDate"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="13km/hr"
+            android:layout_margin="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTVCondition" />
+
+         </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="20dp"
+                   android:gravity="center">
+
+                  <TextView
+                      android:id="@+id/idTVDate2"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="31/04/2022"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                  <TextView
+                      android:id="@+id/idTVTemperature2"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate2"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="21°C"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      android:textSize="20sp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVDate2" />
+
+                  <ImageView
+                      android:id="@+id/idTVCondition2"
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_margin="5dp"
+                      android:padding="4dp"
+                      android:src="@drawable/w01d"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.5"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/idTVTemperature2" />
+                  <TextView
+                      android:id="@+id/idTVWindSpeed2"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate2"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="14km/hr"
+                      android:layout_margin="4dp"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVCondition2" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="20dp"
+                   android:gravity="center">
+
+                  <TextView
+                      android:id="@+id/idTVDate3"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="01/05/2022"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                  <TextView
+                      android:id="@+id/idTVTemperature3"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate3"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="25°C"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      android:textSize="20sp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVDate3" />
+
+                  <ImageView
+                      android:id="@+id/idTVCondition3"
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_margin="5dp"
+                      android:padding="4dp"
+                      android:src="@drawable/w01d"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.5"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/idTVTemperature3" />
+                  <TextView
+                      android:id="@+id/idTVWindSpeed3"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate3"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="11km/hr"
+                      android:layout_margin="4dp"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVCondition3" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="20dp"
+                   android:gravity="center">
+
+                  <TextView
+                      android:id="@+id/idTVDate4"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="02/05/2022"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                  <TextView
+                      android:id="@+id/idTVTemperature4"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate4"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="20°C"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      android:textSize="20sp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVDate4" />
+
+                  <ImageView
+                      android:id="@+id/idTVCondition4"
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_margin="5dp"
+                      android:padding="4dp"
+                      android:src="@mipmap/ic_launcher"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.5"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/idTVTemperature4" />
+                  <TextView
+                      android:id="@+id/idTVWindSpeed4"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate4"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="17km/hr"
+                      android:layout_margin="4dp"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVCondition4" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="20dp"
+                   android:gravity="center">
+
+                  <TextView
+                      android:id="@+id/idTVDate5"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="03/05/2022"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                  <TextView
+                      android:id="@+id/idTVTemperature5"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate5"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="20°C"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      android:textSize="20sp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVDate5" />
+
+                  <ImageView
+                      android:id="@+id/idTVCondition5"
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_margin="5dp"
+                      android:padding="4dp"
+                      android:src="@drawable/w02d"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.5"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/idTVTemperature5" />
+                  <TextView
+                      android:id="@+id/idTVWindSpeed5"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate5"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="13km/hr"
+                      android:layout_margin="4dp"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVCondition5" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="20dp"
+                   android:gravity="center">
+
+                  <TextView
+                      android:id="@+id/idTVDate6"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="04/05/2022"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                  <TextView
+                      android:id="@+id/idTVTemperature6"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate6"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="20°C"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      android:textSize="20sp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVDate6" />
+
+                  <ImageView
+                      android:id="@+id/idTVCondition6"
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_margin="5dp"
+                      android:padding="4dp"
+                      android:src="@drawable/w02d"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.5"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/idTVTemperature6" />
+                  <TextView
+                      android:id="@+id/idTVWindSpeed6"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate6"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="13km/hr"
+                      android:layout_margin="4dp"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVCondition6" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/day7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginEnd="10dp">
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="20dp"
+                   android:gravity="center">
+
+                  <TextView
+                      android:id="@+id/idTVDate7"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="05/05/2022"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                  <TextView
+                      android:id="@+id/idTVTemperature7"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate7"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="23°C"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      android:textSize="20sp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVDate7" />
+
+                  <ImageView
+                      android:id="@+id/idTVCondition7"
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_margin="5dp"
+                      android:padding="4dp"
+                      android:src="@drawable/w02d"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.5"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/idTVTemperature7" />
+                  <TextView
+                      android:id="@+id/idTVWindSpeed7"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/idTVDate7"
+                      android:gravity="center"
+                      android:padding="4dp"
+                      android:text="13km/hr"
+                      android:layout_margin="4dp"
+                      android:textAlignment="center"
+                      android:textColor="@color/white"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/idTVCondition7" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+         </LinearLayout>
+      </HorizontalScrollView>
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

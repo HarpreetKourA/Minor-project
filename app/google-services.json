@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "708353317063",
+    "project_id": "minor-plant-app",
+    "storage_bucket": "minor-plant-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708353317063:android:40976e26fec3cd7f8f06e2",
+        "android_client_info": {
+          "package_name": "com.devfolks.minorplantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708353317063-q4968pab2v7q5lab0q1cl7vlu2riavva.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devfolks.minorplantapp",
+            "certificate_hash": "f701afc2c8be6ec05c1af73b7853d9aaa381af3b"
+          }
+        },
+        {
+          "client_id": "708353317063-3b3mphp3a3qj1so1gt1c2n8oqs3jon1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCixu99oEJWHcMHGOAA6KjJkkz5brR_leE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708353317063-3b3mphp3a3qj1so1gt1c2n8oqs3jon1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

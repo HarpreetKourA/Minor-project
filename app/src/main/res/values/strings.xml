@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Minor Plant App</string>
+    <string name="onboarding1_title">First onboarding Title</string>
+    <string name="onboarding1_description">First onboarding Description</string>
+    <string name="onboarding2_title">Second onboarding Title</string>
+    <string name="onboarding2_description">Second onboarding Description</string>
+    <string name="onboarding3_title">Third onboarding Title</string>
+    <string name="onboarding3_description">Third onboarding Description</string>
+    <string name="phnno_para">Please enter your Country code and phone number to verification</string>
+    <string-array name="crop">
+        <item name="select">Select Crop</item>
+        <item name="tomato">Tomato</item>
+        <item name="cotton">Cotton</item>
+    </string-array>
+    <string-array name="area">
+        <item name="acre">acre</item>
+        <item name="sqm">sq m</item>
+        <item name="mile">mile</item>
+    </string-array>
+    <string name="hello_blank_fragment">Blank</string>
+</resources>
